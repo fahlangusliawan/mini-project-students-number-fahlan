@@ -1,7 +1,7 @@
 # mini-project-students-number-fahlan
 
 ## Penjelasan singkat project
-![my project erd](https://drive.google.com/file/d/1Zp5lnMc8m-gI_8a16WcwpBz3FV9OvmrC/view?usp=sharing)
+![my project erd](https://github.com/fahlangusliawan/mini-project-students-number-fahlan/blob/main/Simple-University.jpg)
 Ini adalah mini project untuk meng-generate NPM(Nomor Pokok Mahasiswa) secara otomatis ketika mahasiswa didaftarkan. ketika mahasiswa mendaftar akan dimasukan data diri, fakultas serta jurusan yg ia daftar. Sistem akan menghasilkan npm secara otomatis serta mengisi tabel tagihan secara otomatis. yang berisi tagihan spp semestar 1.
 mini-project ini memiliki 4 buah tabel yaitu tabel faculties, programs, students dan bills.
 - faculties : berisi data id dan nama fakultas
