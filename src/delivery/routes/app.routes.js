@@ -1,14 +1,18 @@
 const express = require("express");
 const { db } = require("../../config/db");
+const BillsRepository = require("../../repository/biils.repository");
 const FacultiesRepository = require("../../repository/faculties.repository");
 const ProgramsRepository = require("../../repository/programs.repository");
 const StudentsRepository = require("../../repository/students.repository");
+const BillsService = require("../../service/bills.service");
 const FacultiesService = require("../../service/faculties.service");
 const ProgramsService = require("../../service/programs.service");
 const StudentsService = require("../../service/students.service");
+const BillsController = require("../controller/bills.controller");
 const FacultiesController = require("../controller/faculties.controller");
 const ProgramsController = require("../controller/programs.controller");
 const StudentsController = require("../controller/students.controller");
+const BillsRoutes = require("./bills.routes");
 const FacultiesRoutes = require("./faculties.routes");
 const ProgramsRoutes = require("./programs.routes");
 const StudentsRoutes = require("./students.routes");
@@ -16,5 +20,6 @@ const router = express.Router();
 
 router.use('/faculty',FacultiesRoutes(FacultiesController(FacultiesService(FacultiesRepository(db)))));
 router.use('/programs',ProgramsRoutes(ProgramsController(ProgramsService(ProgramsRepository(db)))));
-router.use('/students',StudentsRoutes(StudentsController(StudentsService(StudentsRepository(db)))))
+router.use('/students',StudentsRoutes(StudentsController(StudentsService(StudentsRepository(db)))));
+router.use('/bills',BillsRoutes(BillsController(BillsService(BillsRepository(db)))));
 module.exports = router;

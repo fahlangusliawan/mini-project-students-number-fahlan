@@ -23,12 +23,23 @@ create table students(
 	address varchar(100),
 	faculties_id varchar,
 	programs_id varchar,
-	npm varchar,
+	npm varchar UNIQUE,
+	status boolean,
 	created_at timestamp with time zone,
 	updated_at timestamp with time zone
 );
 ALTER TABLE students ADD CONSTRAINT fk_faculties_id FOREIGN KEY (faculties_id) REFERENCES faculties(id);
 ALTER TABLE students ADD CONSTRAINT fk_programs_id FOREIGN KEY (programs_id) REFERENCES programs(id);
 
+create Table bills{
+	id serial primary key,
+	students_npm varchar,
+	bill_name varchar,
+	amount int,
+	status VARCHAR,
+	created_at timestamp with time zone,
+	updated_at timestamp with time zone
+};
+ALTER TABLE bills ADD CONSTRAINT fk_students_npm FOREIGN KEY (students_npm) REFERENCES students(npm);
 
 

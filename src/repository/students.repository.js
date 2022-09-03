@@ -23,6 +23,11 @@ const StudentsRepository = (db)=>{
             let npm = year[year.length-2] + year[year.length-1]+ student.faculties_id + student.programs_id + student.id;
             const data = await db.query(DBQUery().INSERT_STUDENT,[student.id,npm,student.name,
                 student.gender,student.semester,student.year,student.address,student.faculties_id,student.programs_id]);
+            //buat tagihan spp setelah mahasiswa daftar
+            const bill_name = `semester ${student.semester}`;
+            const amount = 5000000;
+            const status = 'Not Paid';
+            await db.query(DBQUery().INSERT_BILL,[npm,bill_name,amount,status])
             return StudentsDto(data)
         }catch(error){
             console.error(error)
